@@ -1,0 +1,185 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "123Milhas API",
+        "description": "123Milhas API docs",
+        "version": "1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8180",
+            "description": "123Milhas"
+        }
+    ],
+    "paths": {
+        "/v1/groups": {
+            "get": {
+                "tags": [
+                    "groups"
+                ],
+                "summary": "",
+                "description": "",
+                "operationId": "index",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "totalFlights": {
+                                                "type": "int",
+                                                "example": "15"
+                                            },
+                                            "totalGroups": {
+                                                "type": "int",
+                                                "example": "10"
+                                            },
+                                            "cheapestPrice": {
+                                                "type": "float",
+                                                "example": "200"
+                                            },
+                                            "cheapestGroup": {
+                                                "type": "string",
+                                                "example": "asdf764asd89a7982ihgikhjagt"
+                                            },
+                                            "flights": {
+                                                "$ref": "#/components/schemas/flights"
+                                            },
+                                            "groups": {
+                                                "$ref": "#/components/schemas/groups"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "flights": {
+                "type": "array",
+                "items": {
+                    "properties": {
+                        "id": {
+                            "type": "int",
+                            "example": "1"
+                        },
+                        "cia": {
+                            "type": "string",
+                            "example": "GOL"
+                        },
+                        "fare": {
+                            "type": "string",
+                            "example": "1AF"
+                        },
+                        "flightNumber": {
+                            "type": "string",
+                            "example": "G3-1701"
+                        },
+                        "origin": {
+                            "type": "string",
+                            "example": "CNF"
+                        },
+                        "destination": {
+                            "type": "string",
+                            "example": "BSB"
+                        },
+                        "departureDate": {
+                            "type": "string",
+                            "example": "29/01/2021"
+                        },
+                        "arrivalDate": {
+                            "type": "string",
+                            "example": "29/01/2021"
+                        },
+                        "departureTime": {
+                            "type": "string",
+                            "example": "07:40"
+                        },
+                        "arrivalTime": {
+                            "type": "string",
+                            "example": "09:00"
+                        },
+                        "classService": {
+                            "type": "int",
+                            "example": 1
+                        },
+                        "price": {
+                            "type": "float",
+                            "example": "987.54"
+                        },
+                        "tax": {
+                            "type": "float",
+                            "example": "12.45"
+                        },
+                        "outbound": {
+                            "type": "int",
+                            "example": "1"
+                        },
+                        "inbound": {
+                            "type": "int",
+                            "example": "0"
+                        },
+                        "duration": {
+                            "type": "string",
+                            "example": "05:40"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "groups": {
+                "type": "array",
+                "items": {
+                    "properties": {
+                        "uniqueId": {
+                            "type": "string",
+                            "example": "asdf764asd89a7982ihgikhjagt"
+                        },
+                        "totalPrice": {
+                            "type": "float",
+                            "example": "987.78"
+                        },
+                        "inbound": {
+                            "type": "array",
+                            "items": {
+                                "type": "int"
+                            },
+                            "example": "[123456789, 456789123]"
+                        },
+                        "outbound": {
+                            "type": "array",
+                            "items": {
+                                "type": "int"
+                            },
+                            "example": "[987321654, 654987321]"
+                        }
+                    },
+                    "type": "object"
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "bearerAuth",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    }
+}

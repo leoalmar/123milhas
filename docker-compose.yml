@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  php:
+    build:
+      context: ./
+      dockerfile: ./docker/php/Dockerfile
+    container_name: php
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - network-123
+
+  nginx:
+    image: nginx:alpine
+    container_name: web
+    restart: unless-stopped
+    ports:
+      - 8180:80
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/:/etc/nginx/conf.d/
+    networks:
+      - network-123
+
+networks:
+  network-123:
+    driver: bridge
