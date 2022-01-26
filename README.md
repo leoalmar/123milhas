@@ -41,7 +41,7 @@ Para acessar a documentação da API, clique no link abaixo:
 
 Para visualizar o resultado acesse o seguinte link: [http://localhost:8180/v1/groups](http://localhost:8180/v1/groups)
 
-O resultado será o json abaixo:
+O resultado será parecido com o json abaixo:
 ```json
 {
     "totalFlights": 15,
@@ -54,8 +54,7 @@ O resultado será o json abaixo:
             "totalPrice": 200,
             "outbound": [1,2,3],
             "inbound": [9,10]
-        },
-        ...
+        }
     ],
     "flights": [
         {
@@ -75,8 +74,7 @@ O resultado será o json abaixo:
             "outbound": 1,
             "inbound": 0,
             "duration": "1:20"
-        },
-        ...
+        }
     ]
 }
 ```
