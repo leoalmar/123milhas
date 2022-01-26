@@ -31,15 +31,15 @@
                                         "properties": {
                                             "totalFlights": {
                                                 "type": "int",
-                                                "example": "15"
+                                                "example": "25"
                                             },
                                             "totalGroups": {
                                                 "type": "int",
-                                                "example": "10"
+                                                "example": "5"
                                             },
                                             "cheapestPrice": {
                                                 "type": "float",
-                                                "example": "200"
+                                                "example": "987.87"
                                             },
                                             "cheapestGroup": {
                                                 "type": "string",
