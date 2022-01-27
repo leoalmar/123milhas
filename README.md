@@ -2,7 +2,7 @@
 
 Para executar o projeto é necessário ter o **docker** instalado.
 
-Faça o download do projeto a partir do reositório no github:
+Faça o download do projeto a partir do repositório no github:
 ```sh
 git clone https://github.com/leoalmar/123milhas.git
 ```
