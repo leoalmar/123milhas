@@ -33,12 +33,12 @@ class UmDoisTresMilhasService extends Service
     {
         $flights = Http::get($this->flights_url)->throw()->json();
         $groups = $this->processFlights($flights);
-
+        $firstGroup = $groups[0];
         return [
             'totalFlights' => count($flights),
             'totalGroups' => count($groups),
-            'cheapestPrice' => $groups[0]['totalPrice'],
-            'cheapestGroup' => $groups[0]['uniqueId'],
+            'cheapestPrice' => $firstGroup['totalPrice'],
+            'cheapestGroup' => $firstGroup['uniqueId'],
             'groups' => $groups,
             'flights' => $flights,
         ];
